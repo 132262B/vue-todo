@@ -8,7 +8,7 @@
             class="mx-auto mb-3"
             width="auto"
             prepend-icon="mdi-check"
-            v-for="todoItem in todoItems"
+            v-for="(todoItem, index) in todoItems"
             v-bind:key="todoItem"
           >
             <template v-slot:title>
@@ -16,7 +16,7 @@
               <v-icon
                 class="text-h5 float-right pa-1"
                 icon="mdi-delete"
-                v-on:click="removeTodo"
+                v-on:click="removeTodo(todoItem, index)"
               ></v-icon
             ></template>
           </v-card>
@@ -35,8 +35,9 @@ export default {
     };
   },
   methods: {
-    removeTodo() {
-      console.log("removeTodoButton!");
+    removeTodo(todoItem, index) {
+      localStorage.removeItem(todoItem);
+      this.todoItems.splice(index, 1);
     },
   },
   created() {
