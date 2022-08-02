@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="bg-bg">
     <v-main>
       <todo-header />
       <todo-input />
@@ -24,9 +24,8 @@ export default {
     TodoInput,
     TodoFooter,
   },
-
-  data: () => ({
-    //
-  }),
 };
 </script>
+
+<style>
+</style>

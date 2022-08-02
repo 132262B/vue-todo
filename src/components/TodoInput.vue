@@ -2,31 +2,26 @@
   <div>
     <v-container class="grey lighten-5">
       <v-row>
-        <v-col cols="11" xs="8">
+        <v-col cols="1" lg="3"></v-col>
+        <v-col cols="8" sm="9" lg="5">
           <v-text-field
-            label="Things to do today"
-            variant="solo"
-            single-line
+            label="할 일을 입력해주세요."
+            variant="underlined"
             v-model="newTodoData"
             v-on:keyup.enter="addTodo"
           ></v-text-field>
         </v-col>
-        <v-col cols="1" xs="4">
-          <v-btn
-            variant="outlined"
-            size="large"
-            icon
-            color="info"
-            v-on:click="addTodo"
-          >
-            <v-icon>mdi-pencil</v-icon>
+        <v-col cols="1">
+          <v-btn class=".rounded-e-xl" color="buttonColor" v-on:click="addTodo">
+            추가하기
           </v-btn>
         </v-col>
+        <v-col cols="1" lg="3"></v-col>
       </v-row>
     </v-container>
   </div>
 </template>
-
+.rounded-e-xl
 <script>
 export default {
   data: function () {
@@ -36,7 +31,7 @@ export default {
   },
   methods: {
     addTodo() {
-      localStorage.setItem("ToDoListData", this.newTodoData);
+      localStorage.setItem(this.newTodoData, this.newTodoData);
       console.log(localStorage.length);
 
       this.clearTodo();
