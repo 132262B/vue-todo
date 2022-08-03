@@ -31,7 +31,13 @@ export default {
   },
   methods: {
     addTodo() {
-      localStorage.setItem(this.newTodoData, this.newTodoData);
+      if (this.newTodoData === "") {
+        alert("값을 입력해주세요.");
+        return;
+      }
+
+      let obj = { completed: false, item: this.newTodoData };
+      localStorage.setItem(this.newTodoData, JSON.stringify(obj));
       console.log(localStorage.length);
 
       this.clearTodo();
