@@ -7,7 +7,7 @@
           <v-card
             class="mx-auto mb-3"
             width="auto"
-            v-for="(todoItem, index) in todoItems"
+            v-for="(todoItem, index) in propsDatas"
             v-bind:key="todoItem"
           >
             <template v-slot:title>
@@ -42,31 +42,16 @@
 
 <script>
 export default {
-  data: function () {
-    return {
-      todoItems: [],
-    };
-  },
   methods: {
     removeTodo(todoItem, index) {
-      localStorage.removeItem(todoItem.item);
-      this.todoItems.splice(index, 1);
+      this.$emit("removeTodoItem", todoItem, index);
     },
-    completeTodo(todoItem, index) {
-      todoItem.completed = true;
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+    completeTodo(todoItem) {
+      console.log(todoItem);
+      this.$emit("completeTodoItem", todoItem);
     },
   },
-  created: function () {
-    if (localStorage.length > 0) {
-      for (let i = 0; i < localStorage.length; i++) {
-        const storageItem = JSON.parse(
-          localStorage.getItem(localStorage.key(i))
-        );
-        this.todoItems.push(storageItem);
-      }
-    }
-  },
+  props: ["propsDatas"],
 };
 </script>
 

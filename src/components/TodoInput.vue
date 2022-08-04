@@ -31,16 +31,10 @@ export default {
   },
   methods: {
     addTodo() {
-      if (this.newTodoData === "") {
-        alert("값을 입력해주세요.");
-        return;
+      if (this.newTodoData !== "") {
+        this.$emit("addTodoItem", this.newTodoData);
+        this.clearTodo();
       }
-
-      let obj = { completed: false, item: this.newTodoData };
-      localStorage.setItem(this.newTodoData, JSON.stringify(obj));
-      console.log(localStorage.length);
-
-      this.clearTodo();
     },
     clearTodo() {
       this.newTodoData = "";

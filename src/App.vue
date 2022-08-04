@@ -2,27 +2,60 @@
   <v-app class="bg-bg">
     <v-main>
       <todo-header />
-      <todo-input />
-      <todo-list-view />
+      <todo-input v-on:addTodoItem="addOneTodo" />
+      <todo-list-view
+        v-bind:propsDatas="todoItems"
+        v-on:removeTodoItem="removeOneTodo"
+        v-on:completeTodoItem="completeTodo"
+      />
       <todo-footer />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import todoHeader from "@/components/TodoHeader.vue";
-import TodoListView from "@/components/TodoListView.vue";
+import todoHeader from "./components/TodoHeader.vue";
+import TodoListView from "./components/TodoListView.vue";
 import TodoInput from "./components/TodoInput.vue";
-import TodoFooter from "@/components/TodoFooter.vue";
+import TodoFooter from "./components/TodoFooter.vue";
 
 export default {
   name: "App",
-
+  data: function () {
+    return {
+      todoItems: [],
+    };
+  },
   components: {
     todoHeader,
     TodoListView,
     TodoInput,
     TodoFooter,
+  },
+  methods: {
+    addOneTodo(todoItem) {
+      let obj = { completed: false, item: todoItem };
+      localStorage.setItem(todoItem, JSON.stringify(obj));
+      this.todoItems.push(obj);
+    },
+    removeOneTodo(todoItem, index) {
+      localStorage.removeItem(todoItem);
+      this.todoItems.splice(index, 1);
+    },
+    completeTodo(todoItem) {
+      todoItem.completed = !todoItem.completed;
+      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+    },
+  },
+  created: function () {
+    if (localStorage.length > 0) {
+      for (let i = 0; i < localStorage.length; i++) {
+        const storageItem = JSON.parse(
+          localStorage.getItem(localStorage.key(i))
+        );
+        this.todoItems.push(storageItem);
+      }
+    }
   },
 };
 </script>
