@@ -16,7 +16,7 @@
                 class="text-h4 float-left pa-1 mr-4 iconColorGray"
                 v-bind:class="{ iconColorDone: todoItem.completed }"
                 icon="mdi-check"
-                v-on:click="completeTodo(todoItem, index)"
+                v-on:click="completeTodo(index)"
               />
 
               <!-- 내용 -->
@@ -29,7 +29,7 @@
               <v-icon
                 class="text-h5 float-right pa-1 iconColorGray"
                 icon="mdi-delete"
-                v-on:click="removeTodo(todoItem, index)"
+                v-on:click="removeTodo(index)"
               />
             </template>
           </v-card>
@@ -43,12 +43,11 @@
 <script>
 export default {
   methods: {
-    removeTodo(todoItem, index) {
-      this.$emit("removeTodoItem", todoItem, index);
+    removeTodo(index) {
+      this.$emit("removeTodoItem", index);
     },
-    completeTodo(todoItem) {
-      console.log(todoItem);
-      this.$emit("completeTodoItem", todoItem);
+    completeTodo(index) {
+      this.$emit("completeTodoItem", index);
     },
   },
   props: ["propsDatas"],

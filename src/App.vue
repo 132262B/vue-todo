@@ -38,13 +38,17 @@ export default {
       localStorage.setItem(todoItem, JSON.stringify(obj));
       this.todoItems.push(obj);
     },
-    removeOneTodo(todoItem, index) {
-      localStorage.removeItem(todoItem);
+    removeOneTodo(index) {
+      console.log(this.todoItems[index].item);
+      localStorage.removeItem(this.todoItems[index].item);
       this.todoItems.splice(index, 1);
     },
-    completeTodo(todoItem) {
-      todoItem.completed = !todoItem.completed;
-      localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+    completeTodo(index) {
+      this.todoItems[index].completed = !this.todoItems[index].completed;
+      localStorage.setItem(
+        this.todoItems[index].item,
+        JSON.stringify(this.todoItems[index])
+      );
     },
   },
   created: function () {
