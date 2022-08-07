@@ -21,7 +21,6 @@
     </v-container>
   </div>
 </template>
-.rounded-e-xl
 <script>
 export default {
   data: function () {
