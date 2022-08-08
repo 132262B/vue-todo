@@ -20,12 +20,27 @@
       </v-row>
     </v-container>
   </div>
+
+  <div>
+    <Modal v-if="showModal" @close="showModal = false">
+      <template v-slot:header>
+        <h3>경고!</h3>
+      </template>
+
+      <template v-slot:body>
+        <p>무언가를 입력하세요.</p>
+      </template>
+    </Modal>
+  </div>
 </template>
 <script>
+import Modal from "./common/Modal.vue";
+
 export default {
   data: function () {
     return {
       newTodoData: "",
+      showModal: false,
     };
   },
   methods: {
@@ -33,11 +48,16 @@ export default {
       if (this.newTodoData !== "") {
         this.$emit("addTodoItem", this.newTodoData);
         this.clearTodo();
+      } else {
+        this.showModal = true;
       }
     },
     clearTodo() {
       this.newTodoData = "";
     },
+  },
+  components: {
+    Modal: Modal,
   },
 };
 </script>
