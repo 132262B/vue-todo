@@ -37,7 +37,7 @@
 import Modal from "./common/Modal.vue";
 
 export default {
-  data: function () {
+  data() {
     return {
       newTodoData: "",
       showModal: false,
@@ -57,7 +57,7 @@ export default {
     },
   },
   components: {
-    Modal: Modal,
+    Modal,
   },
 };
 </script>

@@ -21,7 +21,7 @@ import TodoFooter from "./components/TodoFooter.vue";
 
 export default {
   name: "App",
-  data: function () {
+  data() {
     return {
       todoItems: [],
     };
@@ -51,7 +51,7 @@ export default {
       );
     },
   },
-  created: function () {
+  created() {
     if (localStorage.length > 0) {
       for (let i = 0; i < localStorage.length; i++) {
         const storageItem = JSON.parse(

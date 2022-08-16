@@ -71,11 +71,11 @@ export default {
 
 .list-enter-active,
 .list-leave-active {
-  transition: all 1s ease;
+  transition: all 2s;
 }
 .list-enter-from,
 .list-leave-to {
   opacity: 0;
-  transform: translateX(60px);
+  transform: translateY(30px);
 }
 </style>
