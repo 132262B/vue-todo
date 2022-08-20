@@ -8,5 +8,5 @@ loadFonts()
 
 createApp(App)
   .use(vuetify)
-  .use(stroe)
+  .use(store)
   .mount('#app')

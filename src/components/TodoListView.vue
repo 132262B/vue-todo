@@ -8,7 +8,7 @@
             <v-card
               class="mx-auto mb-3"
               width="auto"
-              v-for="(todoItem, index) in propsDatas"
+              v-for="(todoItem, index) in this.$store.state.todoItems"
               v-bind:key="todoItem"
             >
               <template v-slot:title>
@@ -17,7 +17,7 @@
                   class="text-h4 float-left pa-1 mr-4 iconColorGray"
                   v-bind:class="{ iconColorDone: todoItem.completed }"
                   icon="mdi-check"
-                  v-on:click="completeTodo(index)"
+                  @click="completeTodo(index)"
                 />
 
                 <!-- 내용 -->
@@ -30,7 +30,7 @@
                 <v-icon
                   class="text-h5 float-right pa-1 iconColorGray"
                   icon="mdi-delete"
-                  v-on:click="removeTodo(index)"
+                  @click="removeTodo(index)"
                 />
               </template>
             </v-card>
@@ -46,13 +46,14 @@
 export default {
   methods: {
     removeTodo(index) {
-      this.$emit("removeTodoItem", index);
+      // this.$emit("removeTodoItem", index);
+      this.$store.commit("removeOneTodo", index);
     },
     completeTodo(index) {
-      this.$emit("completeTodoItem", index);
+      // this.$emit("completeTodoItem", index);
+      this.$store.commit("completeTodo", index);
     },
   },
-  props: ["propsDatas"],
 };
 </script>
 

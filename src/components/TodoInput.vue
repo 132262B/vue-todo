@@ -8,11 +8,11 @@
             label="할 일을 입력해주세요."
             variant="underlined"
             v-model="newTodoData"
-            v-on:keyup.enter="addTodo"
+            @keyup.enter="addTodo"
           ></v-text-field>
         </v-col>
         <v-col cols="1">
-          <v-btn class=".rounded-e-xl" color="buttonColor" v-on:click="addTodo">
+          <v-btn class=".rounded-e-xl" color="buttonColor" @click="addTodo">
             추가하기
           </v-btn>
         </v-col>
@@ -45,8 +45,10 @@ export default {
   },
   methods: {
     addTodo() {
-      if (this.newTodoData !== "") {
-        this.$emit("addTodoItem", this.newTodoData);
+      const inputText = this.newTodoData.trim();
+      if (inputText !== "") {
+        // this.$emit("addTodoItem", this.newTodoData);
+        this.$store.commit("addOneTodo", inputText);
         this.clearTodo();
       } else {
         this.showModal = true;

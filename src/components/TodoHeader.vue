@@ -7,15 +7,13 @@
 
       <v-icon icon="mdi-battery" class="ml-2"></v-icon>
 
-      <span class="ml-2">08:30</span>
+      <span class="ml-2">{{ this.$store.state.todoTime }}</span>
     </v-system-bar>
   </v-layout>
 </template>
 
 <script>
-export default {
-  components: {},
-};
+export default {};
 </script>
 
 <style scoped>
