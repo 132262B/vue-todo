@@ -8,7 +8,7 @@
             <v-card
               class="mx-auto mb-3"
               width="auto"
-              v-for="(todoItem, index) in this.$store.state.todoItems"
+              v-for="(todoItem, index) in this.todoItem"
               v-bind:key="todoItem"
             >
               <template v-slot:title>
@@ -43,6 +43,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   methods: {
     removeTodo(index) {
@@ -53,6 +55,15 @@ export default {
       // this.$emit("completeTodoItem", index);
       this.$store.commit("completeTodo", index);
     },
+  },
+  computed: {
+    // todoItems() {
+    //   return this.$store.getters.getTodoItems;
+    // },
+    //...mapGetters(["getTodoItems"]),
+    ...mapGetters({
+      todoItem: "getTodoItems",
+    }),
   },
 };
 </script>

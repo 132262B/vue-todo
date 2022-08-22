@@ -20,12 +20,14 @@ const storage = {
 
 export const store = new Vuex.Store({
     state: {
-        todoTime: '04:44',
+        todoTime: '04:45',
         todoItems: storage.fetch(),
 
     },
     getters: {
-
+        getTodoItems(state) {
+            return state.todoItems;
+        }
     },
     mutations: {
         addOneTodo(state, todoItem) {
