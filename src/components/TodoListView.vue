@@ -43,18 +43,25 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   methods: {
-    removeTodo(index) {
-      // this.$emit("removeTodoItem", index);
-      this.$store.commit("removeOneTodo", index);
-    },
-    completeTodo(index) {
-      // this.$emit("completeTodoItem", index);
-      this.$store.commit("completeTodo", index);
-    },
+    // mutations 에서는 선언하지 않아도 상단에서 암묵적으로 객체를 넘김.
+    ...mapMutations({
+      removeTodo: "removeOneTodo",
+    }),
+    //removeTodo(index) {
+    // this.$emit("removeTodoItem", index);
+    // this.$store.commit("removeOneTodo", index);
+    //},
+    ...mapMutations({
+      completeTodo: "completeTodo",
+    }),
+    // completeTodo(index) {
+    // this.$emit("completeTodoItem", index);
+    //   this.$store.commit("completeTodo", index);
+    // },
   },
   computed: {
     // todoItems() {
