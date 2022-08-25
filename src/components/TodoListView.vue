@@ -69,7 +69,7 @@ export default {
     // },
     //...mapGetters(["getTodoItems"]),
     ...mapGetters({
-      todoItem: "getTodoItems",
+      todoItem: "todoApp/getTodoItems",
     }),
   },
 };
