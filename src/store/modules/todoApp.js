@@ -16,7 +16,7 @@ const storage = {
     }
 }
 
-const status = {
+const state = {
     todoTime: '04:45',
     todoItems: storage.fetch(),
 }
@@ -48,7 +48,7 @@ const mutations = {
 
 export default {
     namespaced: true,
-    status,
+    state,
     getters,
     mutations,
 }

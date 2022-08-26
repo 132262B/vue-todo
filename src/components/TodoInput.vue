@@ -45,7 +45,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["todoApp/addOneTodo"]),
+    ...mapMutations("todoApp", ["addOneTodo"]),
     addTodo() {
       const inputText = this.newTodoData.trim();
       if (inputText !== "") {

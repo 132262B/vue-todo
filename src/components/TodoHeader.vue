@@ -17,7 +17,7 @@ import { mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["todoTime"]),
+    ...mapState("todoApp", ["todoTime"]),
   },
 };
 </script>

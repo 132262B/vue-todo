@@ -48,14 +48,14 @@ import { mapGetters, mapMutations } from "vuex";
 export default {
   methods: {
     // mutations 에서는 선언하지 않아도 상단에서 암묵적으로 객체를 넘김.
-    ...mapMutations({
+    ...mapMutations("todoApp", {
       removeTodo: "removeOneTodo",
     }),
     //removeTodo(index) {
     // this.$emit("removeTodoItem", index);
     // this.$store.commit("removeOneTodo", index);
     //},
-    ...mapMutations({
+    ...mapMutations("todoApp", {
       completeTodo: "completeTodo",
     }),
     // completeTodo(index) {
@@ -68,8 +68,8 @@ export default {
     //   return this.$store.getters.getTodoItems;
     // },
     //...mapGetters(["getTodoItems"]),
-    ...mapGetters({
-      todoItem: "todoApp/getTodoItems",
+    ...mapGetters("todoApp", {
+      todoItem: "getTodoItems",
     }),
   },
 };
