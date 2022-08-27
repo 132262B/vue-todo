@@ -2,21 +2,17 @@
   <div>
     <v-container class="grey lighten-5">
       <v-row>
-        <v-col cols="1" lg="3"></v-col>
-        <v-col cols="8" sm="9" lg="5">
+        <v-col cols="1" lg="3" />
+        <v-col cols="10" lg="6">
           <v-text-field
             label="할 일을 입력해주세요."
             variant="underlined"
             v-model="newTodoData"
             @keyup.enter="addTodo"
           ></v-text-field>
+          <v-btn block variant="text" @click="addTodo">add</v-btn>
         </v-col>
-        <v-col cols="1">
-          <v-btn class=".rounded-e-xl" color="buttonColor" @click="addTodo">
-            추가하기
-          </v-btn>
-        </v-col>
-        <v-col cols="1" lg="3"></v-col>
+        <v-col cols="1" lg="3" />
       </v-row>
     </v-container>
   </div>

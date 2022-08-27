@@ -13,8 +13,8 @@ export default createVuetify(
         light: {
           dark: false,
           colors: {
-            bg: '#5FCEB3',
-            buttonColor: '#5197D6',
+            mainBackgroundColor: '#f8f9fa',
+            headerColor: '#ced4da'
           }
         },
       },

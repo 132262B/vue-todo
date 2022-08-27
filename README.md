@@ -1,5 +1,13 @@
 # vue-todo
 
+<center>
+<img src="./images/todolist.gif" width="200px" title="Github_Logo"/>
+<br>
+(미리보기)
+</center>
+
+
+
 ## Project setup
 ```
 npm install

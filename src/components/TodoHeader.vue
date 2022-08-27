@@ -1,6 +1,6 @@
 <template>
   <v-layout style="height: 50px">
-    <v-system-bar color="primary">
+    <v-system-bar color="headerColor">
       <v-icon icon="mdi-wifi-strength-4" class="ml-2"></v-icon>
 
       <v-icon icon="mdi-signal-cellular-outline" class="ml-2"></v-icon>

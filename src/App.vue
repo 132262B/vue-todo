@@ -1,5 +1,5 @@
 <template>
-  <v-app class="bg-bg">
+  <v-app class="bg-mainBackgroundColor">
     <v-main>
       <todo-header />
       <!-- <todo-input v-on:addTodoItem="addOneTodo" /> -->
